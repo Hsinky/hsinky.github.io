@@ -341,8 +341,8 @@
   }
 
   .VPHero {
-
-    padding: 100px 0 40px 0 !important;
+    /* 增加移动端顶部内边距，防止固定的 Header 遮挡古诗内容 */
+    padding: 160px 0 40px 0 !important;
   }
   .VPHero .container { 
     flex-direction: column !important; 
