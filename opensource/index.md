@@ -1,7 +1,15 @@
 ---
+title: 开源项目 | 李欣琪 (Hsinky Li)
+description: 李欣琪分享的开源项目列表，包括 Nuxt 4 企业级脚手架等技术工具。
+head:
+  - - meta
+    - name: keywords
+      content: 开源项目, 技术架构, 企业级脚手架, 自动化工程流, 前端组件库, 技术实验室, Nuxt 4, 技术分享
+
 aside: false
 pageClass: project-page
 ---
+
 
 <div class="projects-archive">
   <header class="archive-header">

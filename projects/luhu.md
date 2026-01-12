@@ -1,7 +1,16 @@
 ---
+title: 路呼 - 城市深度探索与地理位置社交应用
+description: 路呼是一款专注于城市探索的社交应用，通过地理位置连接同频好友，记录城市足迹。
+head:
+  - - meta
+    - name: keywords
+      content: 路呼, lohoo, lohoo.club, 城市探索, 地理位置社交, 附近社交, 探店打卡, LBS应用, 真实交互, 城市足迹
+
 aside: false
 pageClass: project-page
 ---
+
+
 
 <div class="project-detail">
   <header class="detail-header">

@@ -1,7 +1,15 @@
 ---
+title: 关于我 | 李欣琪 (Hsinky Li)
+description: 深入了解李欣琪（Hsinky Li）的职业生涯、核心技术领域、设计哲学以及联络方式。
+head:
+  - - meta
+    - name: keywords
+      content: 李欣琪, Hsinky Li, 资深前端开发, 产品逻辑, 设计哲学, 像素级还原, 商业闭环, 历程经历, 联络方式
+
 pageClass: project-page
 aside: false
 ---
+
 
 <div class="project-detail">
 <!-- 头部：完全对齐作品详情页结构，确保起点一致 -->

@@ -4,7 +4,6 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "李欣琪",
   description: "青灯为墙，旖旎为家，以梦为马，不负韶华。",
-  lastUpdated: true,
   sitemap: {
     hostname: "https://hsinky.cn",
   },
@@ -15,6 +14,36 @@ export default defineConfig({
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Outfit:wght@100..300&family=Noto+Serif+SC:wght@200;300;500&display=swap",
       },
+    ],
+    ["meta", { name: "author", content: "李欣琪" }],
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:locale", content: "zh_CN" }],
+    ["meta", { property: "og:site_name", content: "李欣琪" }],
+    ["meta", { property: "og:title", content: "李欣琪 (Hsinky Li) - 记录 · 思考 · 创作" }],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "记录 · 思考 · 创作 - 李欣琪的个人博客",
+      },
+    ],
+    ["meta", { property: "og:url", content: "https://hsinky.cn" }],
+    // 百度自动推送脚本
+    [
+      "script",
+      {},
+      `(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();`,
     ],
   ],
   themeConfig: {

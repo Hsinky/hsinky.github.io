@@ -1,7 +1,15 @@
 ---
+title: 汉邦人 - 数字化汉服社区与传统文化传承
+description: 汉邦人致力于通过数字化手段重新定义汉服社区体验，探索汉服文化、礼俗岁时与学术传习。
+head:
+  - - meta
+    - name: keywords
+      content: 汉邦人, hanbangren, 非遗, 非遗文化, 非遗传承, 汉服社区, 传统汉文化, 数字化传承, 汉服活动, 礼俗研究, 汉服资讯, 华夏文明
 aside: false
 pageClass: project-page
 ---
+
+
 
 <div class="project-detail">
   <header class="detail-header">

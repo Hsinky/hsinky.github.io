@@ -1,7 +1,17 @@
 ---
+title: 独立产品合集 - 汉邦人 & 路呼 | 李欣琪
+description: 探索李欣琪开发的独立产品，包括数字化汉服社区“汉邦人”与城市探索社交应用“路呼”。
+head:
+  - - meta
+    - name: keywords
+      content: 独立产品, 汉邦人, hanbangren, 路呼, 非遗, 非遗文化, 非遗传承, 汉服社区, 传统文化传承, 城市探索社交, 地理位置应用, 探店打卡, 独立开发, 产品设计, 创新应用
+
+
 aside: false
 pageClass: project-page
 ---
+
+
 
 <div class="projects-archive">
 <header class="archive-header">

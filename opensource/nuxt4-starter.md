@@ -1,7 +1,15 @@
 ---
+title: Nuxt 4 企业级脚手架 | 开源项目
+description: 基于 Nuxt 4 的高性能全栈开发脚手架，集成自动化工程流、PDF生成、Excel解析等企业级能力。
+head:
+  - - meta
+    - name: keywords
+      content: Nuxt 4, Nuxt 4脚手架, 企业级开发, 前端架构, UseFetch封装, PDF生成, Excel解析, 自动化SEO, Pinia状态管理, TailwindCSS
+
 pageClass: project-page
 aside: true
 ---
+
 
 <div class="project-detail">
   <header class="detail-header">
