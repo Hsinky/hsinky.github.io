@@ -1,0 +1,28 @@
+:root {
+  --vp-c-brand-1: #000000;
+  --vp-c-brand-2: #333333;
+  --vp-c-bg: #fcfcfc;
+  --vp-c-bg-soft: #f4f4f4;
+  --vp-c-text-1: #1a1a1a;
+  --vp-c-text-2: #4a4a4a;
+  --vp-c-text-3: #888888;
+  --vp-c-divider: #f0f0f0;
+
+  
+  --font-serif: "Cormorant Garamond", "Noto Serif SC", serif;
+  --font-sans: "Outfit", sans-serif;
+
+  /* 核心对齐基准：1440px 轨道，全站统一 32px 侧边距 */
+  --vp-layout-max-width: 1440px;
+}
+
+.dark {
+  --vp-c-brand-1: #ffffff;
+  --vp-c-brand-2: #cccccc;
+  --vp-c-bg: #0a0a0a;
+  --vp-c-bg-soft: #141414;
+  --vp-c-text-1: #f0f0f0;
+  --vp-c-text-2: #aaaaaa;
+  --vp-c-text-3: #666666;
+  --vp-c-divider: #222222;
+}

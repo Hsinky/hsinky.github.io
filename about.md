@@ -1,0 +1,162 @@
+---
+pageClass: project-page
+aside: false
+---
+
+<div class="project-detail">
+<!-- 头部：完全对齐作品详情页结构，确保起点一致 -->
+<header class="detail-header">
+<div class="header-deco">ABOUT ME</div>
+<h1 class="detail-title">李欣琪 (Hsinky Li)</h1>
+<p class="detail-subtitle">开发工程师 / 产品 / 创作者</p>
+</header>
+
+<!-- 内容区域：采用第一版画报排版 -->
+<div class="about-intro">
+<p class="intro-quote">“青灯为墙，旖旎为家，以梦为马，不负韶华。”</p>
+<p>这是我一直以来信奉的人生哲学。在这个快节奏的数字时代，我试图通过设计与文字，在浮躁的洪流中搭建起一座安静的岛屿。对我而言，创作不仅是视觉的排布，更是情感的传递与逻辑的重构。</p>
+</div>
+
+<div class="about-grid">
+<div id="expertise" class="about-section">
+<h3>核心领域 / EXPERTISE</h3>
+<ul>
+<li><strong>Software Engineering</strong> 专注于构建高性能、可扩展的 Web 应用与前端工程化方案10余年。</li>
+<li><strong>Full-stack Development</strong> 深度参与现代前端生态，具备从架构设计到核心实现的能力。</li>
+<li><strong>UI/UX Design</strong> 追求极致的交互体验与极简的视觉美学，实现像素级还原。</li>
+<li><strong>Product Thinking</strong> 从技术与设计的双重维度出发，构建逻辑严密的商业闭环。</li>
+</ul>
+</div>
+
+<div id="experience" class="about-section">
+<h3>历程 / EXPERIENCE</h3>
+<ul>
+<li><strong>汉邦人 hanbang.ren</strong>  创始人 & 独立开发者。致力于传统汉文化的数字化传承与创新表达。</li>
+<li><strong>路呼 lohoo.club</strong> 创始人 & 独立开发者。负责产品全链路的视觉呈现与体验架构。</li>
+<li><strong>独立创作</strong> 长期深耕于移动互联网领域，为多个初创项目提供品牌与产品顾问。</li>
+</ul>
+</div>
+</div>
+
+<div id="philosophy" class="about-philosophy">
+<h3>设计哲学 / PHILOSOPHY</h3>
+<p>我坚信“少即是多”原则。 一个好的设计应该是隐形的，它不喧宾夺主，但在用户需要的时候，它总能以最优雅、最直观的方式出现。 我追求那种“画报感”的排布，让每一个像素都拥有它存在的意义。</p>
+</div>
+
+<div id="contact" class="about-contact">
+<h3>联络 / CONTACT</h3>
+<p>如果你有有趣的灵感、创新的项目，或者仅仅是想聊聊设计与生活，欢迎与我联络。</p>
+<ul>
+<li><strong>Github</strong>: <a href="https://github.com/hsinky" target="_blank">github.com/hsinky</a></li>
+<li><strong>微信</strong>: lixinqi-2738</li>
+</ul>
+</div>
+</div>
+
+<style>
+/* 样式适配 */
+/* 强制移除锚点跳转后的所有视觉圈/轮廓 */
+:target, :focus, :active, div:target, section:target, h3:target {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.about-intro {
+  margin-bottom: 4rem;
+}
+
+.intro-quote {
+  font-style: italic;
+  color: var(--vp-c-text-2);
+  margin-bottom: 1.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 4rem;
+}
+
+.about-section h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--vp-c-text-3);
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.about-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-section li {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--vp-c-text-2);
+}
+
+.about-section li strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--vp-c-text-1);
+  margin-bottom: 4px;
+}
+
+.about-philosophy {
+  margin-bottom: 4rem;
+  padding: 30px;
+  background-color: var(--vp-c-bg-soft);
+  border-left: 2px solid var(--vp-c-divider);
+}
+
+.about-philosophy h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--vp-c-text-3);
+  margin-bottom: 20px;
+}
+
+.about-philosophy p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--vp-c-text-2);
+}
+
+.about-contact h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--vp-c-text-3);
+  margin-bottom: 20px;
+}
+
+.about-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-contact li {
+  margin-bottom: 10px;
+  color: var(--vp-c-text-2);
+}
+
+.about-contact a {
+  color: var(--vp-c-text-1);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>

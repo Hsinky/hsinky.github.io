@@ -1,0 +1,433 @@
+/* 项目列表页及详情页布局：确保与首页 1440px 轨道完全一致，消除切换跳动 */
+.project-page .VPDoc{
+    padding-top:35px !important;
+}
+.project-page .VPDoc .container {
+  max-width: var(--vp-layout-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 !important; /* 靠内部 content 控制边距 */
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.project-page .VPDoc .content {
+  max-width: none !important; /* 释放内容宽度限制 */
+  padding-left: 32px !important; /* 关键：与 Header Logo 绝对对齐 */
+  padding-right: 32px !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* 详情页特有对齐调整 */
+.project-page .VPDoc .main {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.project-page .VPContent {
+  padding-top: var(--vp-nav-height) !important;
+}
+
+/* 作品项基础样式 */
+.project-page .project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 32px;
+  padding-right: 0 !important;
+  border-bottom: 1px solid var(--vp-c-divider);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+/* 鼠标悬浮时，右侧 padding 设置为与左侧一致 */
+.project-page .project-item:hover {
+  padding-right: 32px !important; 
+  background-color: var(--vp-c-bg-soft); 
+}
+
+.project-page .p-left { 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 40px; 
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+/* 鼠标悬浮时左侧内容整体微移 */
+.project-page .project-item:hover .p-left { 
+  transform: translateX(20px); 
+}
+
+.project-page .p-num { 
+  font-family: var(--font-serif); 
+  font-size: 1.2rem; 
+  color: var(--vp-c-text-3); 
+  font-style: italic; 
+  transition: color 0.4s ease;
+  margin-top: 0.4rem; /* 配合标题的 line-height，使编号与标题首行视觉对齐 */
+}
+
+.project-page .project-item:hover .p-num { 
+  color: var(--vp-c-text-1); 
+}
+
+.project-page .p-name { 
+  font-family: var(--font-serif); 
+  font-size: clamp(1.8rem, 4vw, 2.4rem); 
+  font-weight: 700; 
+  margin: 0 0 12px 0 !important; 
+  line-height: 1.2; 
+  transition: color 0.4s ease;
+}
+
+.project-page .p-summary { 
+  font-size: 1rem; 
+  color: var(--vp-c-text-2); 
+  max-width: 500px; 
+  margin: 0 !important; 
+  line-height: 1.8; 
+  font-weight: 300; 
+}
+
+.project-page .p-action { 
+  color: var(--vp-c-text-3); 
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+.project-page .p-arrow { 
+  font-size: 2.2rem; 
+  font-weight: 200; 
+}
+
+/* 鼠标悬浮时右侧箭头微移 */
+.project-page .project-item:hover .p-action { 
+  color: var(--vp-c-text-1); 
+  transform: translateX(-20px); 
+}
+
+/* 详情页特征序号位置修正 */
+.feature-grid {
+  margin-top: 60px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px; /* 保持与首页一致的间距 */
+  margin-bottom: 60px;
+}
+
+.f-num {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--vp-c-text-3);
+  font-style: italic;
+  margin-top: 0.1rem; /* 重新对齐标题首行，根据实际渲染微调 */
+  flex-shrink: 0;
+}
+
+.f-info {
+  flex: 1;
+}
+
+.f-info h3 {
+  margin: 0 0 12px 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 1.4rem !important;
+  line-height: 1.4 !important;
+}
+
+.f-info p {
+  margin: 0 !important;
+  color: var(--vp-c-text-2);
+  line-height: 1.8;
+}
+
+/* 详情页头部样式恢复与对齐 */
+.detail-header {
+  margin-bottom: 60px;
+}
+
+.header-deco {
+  font-size: 0.8rem;
+  letter-spacing: 0.5em;
+  color: var(--vp-c-text-3);
+  text-transform: uppercase;
+  margin: 0 0 16px 0 !important; /* 强制 margin-top 为 0 确保对齐红线 */
+  line-height: 1;
+}
+
+/* 统一作品集列表页及详情页的标题样式：选择衬线 Serif 字体以彰显高级感 */
+.archive-title,
+.detail-title {
+  font-family: var(--font-serif) !important;
+  font-size: clamp(2.2rem, 5vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  margin: 0 0 20px 0 !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.archive-subtitle,
+.detail-subtitle {
+  font-size: 1rem !important;
+  color: var(--vp-c-text-2) !important;
+  letter-spacing: 0.2em !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   详情页 Pager 彻底修正：文字箭头永不同行
+   ========================================================================== */
+
+/* 1. PC 端：左右分布布局 */
+.project-page .VPDocFooter .prev-next {
+  border-top: none !important;
+  margin-top: 80px;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+/* 2. Pager Link 基础：强制文字箭头在同一行 (Row) */
+.project-page .VPDocFooter .pager-link {
+  border: none !important;
+  background-color: transparent !important;
+  padding: 10px 0 !important;
+  display: flex !important;
+  flex-direction: row !important; /* 强制水平排列 */
+  align-items: center !important;
+  gap: 16px !important;
+  width: auto !important;
+  max-width: 45% !important;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+  text-decoration: none !important;
+  margin: 0 !important;
+}
+
+/* 下一篇：标题在左，箭头在右 */
+.project-page .VPDocFooter .pager-link.next {
+  flex-direction: row-reverse !important;
+  margin-left: auto !important;
+}
+
+/* 隐藏 VitePress 默认背景和边框 */
+.project-page .VPDocFooter .pager-link:hover {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 悬浮动画：还原为水平微移，增强指向感 */
+.project-page .VPDocFooter .pager-link.prev:hover {
+  transform: translateX(-10px) !important; /* 向左微移 */
+}
+
+.project-page .VPDocFooter .pager-link.next:hover {
+  transform: translateX(10px) !important; /* 向右微移 */
+}
+
+
+/* 符号样式 (← / →) */
+.project-page .VPDocFooter .pager-link .desc {
+  font-family: var(--font-serif) !important;
+  font-size: 1.6rem !important;
+  font-weight: 300 !important;
+  color: var(--vp-c-text-3) !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  transition: color 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 作品标题样式 */
+.project-page .VPDocFooter .pager-link .title {
+  display: inline-block !important; /* 确保不强制换行 */
+  font-family: var(--font-serif) !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  color: var(--vp-c-text-2) !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  transition: color 0.3s ease !important;
+  white-space: nowrap !important; /* 防止标题内部换行 */
+}
+
+.project-page .VPDocFooter .pager-link:hover .desc,
+.project-page .VPDocFooter .pager-link:hover .title {
+  color: var(--vp-c-text-1) !important;
+}
+
+/* ==========================================================================
+   详情页页脚：二维码样式
+   ========================================================================== */
+.detail-footer {
+  margin-top: 40px; 
+  padding: 40px 0; 
+  border-top: 1px solid var(--vp-c-divider);
+  display: flex;
+  justify-content: center;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+}
+
+.qr-desc {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--vp-c-text-3);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SIDEBAR (左侧 ASIDE) 
+   ========================================================================== */
+/* 禁用锚点目标的默认 focus-visible 边框，防止跳转时出现蓝色或黑色圈 */
+:target, :target:focus, :target:active, .about-section:target {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.VPSidebar {
+  background-color: var(--vp-c-bg) !important;
+  border-right: none !important;
+  padding-top: 80px !important;
+}
+
+/* 侧边栏链接基础样式 (修复点击跳转问题) */
+.VPSidebarItem .link {
+  display: block !important; /* block 布局最稳定 */
+  width: 100%;
+  padding: 8px 0 !important; /* 缩小间距，保持精致感 */
+  color: var(--vp-c-text-2) !important;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s, padding-left 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  position: relative;
+  text-decoration: none !important;
+}
+
+/* 悬浮：色彩加深并微移 */
+.VPSidebarItem .link:hover {
+  color: var(--vp-c-text-1) !important;
+  padding-left: 6px !important;
+}
+
+/* 激活态 (彻底锁定突出)：确保点击后不缩回，状态绝对明显 */
+.VPSidebarItem .link.active {
+  color: var(--vp-c-bg) !important; /* 文字反白 */
+  background-color: var(--vp-c-text-1) !important; /* 黑色/深色背景 */
+  font-family: var(--font-serif) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  padding: 8px 20px 8px 40px !important; /* 增加内边距形成色块 */
+  transform: translateX(10px) !important; /* 整体微移 */
+  clip-path: polygon(0% 0%, 100% 0%, 95% 50%, 100% 100%, 0% 100%); /* 右侧切角效果 */
+  opacity: 1 !important;
+  margin: 4px 0 !important;
+  display: block !important;
+}
+
+/* 选中态的指示横线：常驻且醒目 */
+.VPSidebarItem .link.active::before {
+  content: '';
+  position: absolute;
+  left: 12px !important;
+  top: 50% !important;
+  width: 20px !important;
+  height: 2px !important;
+  background-color: var(--vp-c-bg) !important; /* 横线也反白 */
+  transform: translateY(-50%) !important;
+  opacity: 1 !important;
+}
+
+
+
+
+@keyframes dashExtend {
+  from { width: 0; opacity: 0; transform: translateY(-50%) translateX(-10px); }
+  to { width: 24px; opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* 侧边栏整体入场动画 */
+.VPSidebarItem {
+  opacity: 0;
+  animation: sidebarItemIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+.VPSidebarItem:nth-child(1) { animation-delay: 0.1s; }
+.VPSidebarItem:nth-child(2) { animation-delay: 0.2s; }
+.VPSidebarItem:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes sidebarItemIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+
+/* ==========================================================================
+   响应式调整：针对移动端优化
+   ========================================================================== */
+@media (max-width: 767px) {
+  .project-page .VPDoc .content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* 列表页：箭头下移 */
+  .project-page .project-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 32px 16px !important;
+    gap: 16px !important;
+  }
+
+  .project-page .p-action {
+    align-self: flex-end !important; 
+    margin-top: 10px !important;
+  }
+
+  /* 移动端分页：居中分两行，每行文字箭头同行 */
+  .project-page .VPDocFooter .prev-next {
+    flex-direction: column !important; /* 垂直分成两行 */
+    align-items: center !important;    /* 整体居中 */
+    gap: 24px !important;
+  }
+
+  .project-page .VPDocFooter .pager-link {
+    flex-direction: row !important;    /* 核心：即使居中，也要文字箭头同行 */
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 15px 0 !important;
+  }
+
+  .project-page .VPDocFooter .pager-link.next {
+    flex-direction: row-reverse !important;
+    margin-left: 0 !important;
+  }
+
+  .VPSidebar {
+    padding-top: 0 !important;
+  }
+}

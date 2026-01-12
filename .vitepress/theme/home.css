@@ -1,0 +1,398 @@
+/* ==========================================================================
+   HOME PAGE: HERO & SELECTED WORKS
+   ========================================================================== */
+
+/* --- HERO SECTION --- */
+.VPHero {
+  padding: 180px 0 60px 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHero .container {
+  max-width: var(--vp-layout-max-width) !important;
+  margin: 0 auto !important;
+  padding-left: 32px !important;
+  padding-right: 0 !important; /* 首页 Hero 释放右侧 padding */
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.VPHero .main { flex: 1 !important; max-width: none !important; }
+.VPHero .name {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 10vw, 7.5rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1 !important;
+  color: var(--vp-c-text-1) !important;
+  margin-bottom: 3.5rem !important;
+  background: none !important; 
+  -webkit-text-fill-color: initial !important; 
+  position: relative;
+  white-space: nowrap !important;
+  z-index: 2;
+}
+
+.VPHero .name::before {
+  content: "HSINKY";
+  position: absolute;
+  top: -0.6em; left: -0.05em;
+  font-family: var(--font-serif);
+  font-size: 1.6em;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--vp-c-text-1);
+  opacity: 0.05;
+  z-index: -1;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  transform: skewX(-10deg);
+  transform-origin: left bottom;
+}
+
+.VPHero .text {
+  font-family: var(--font-sans);
+  font-size: 1.1rem !important; /* 稍微缩小一点，增加精致感 */
+  letter-spacing: 1.2em !important; /* 增加字间距，更有画报感 */
+  color: var(--vp-c-text-3) !important; /* 使用 text-3 但增加字间距 */
+  margin-bottom: 5rem !important;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.VPHero .actions { margin-top: 80px !important; display: flex !important; gap: 16px !important; }
+.VPHero .actions .VPButton {
+  width: 200px !important; /* 强制固定宽度，确保完全一致 */
+  padding: 0 !important; /* 移除 padding 以防内容撑开 */
+  justify-content: center;
+}
+
+/* 右侧内容 */
+@media (min-width: 960px) { .VPHero .image { flex-grow: 0 !important; } }
+
+.custom-hero-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end !important;
+  justify-content: center;
+  min-width: 350px;
+}
+
+.vertical-slogan {
+  display: flex;
+  flex-direction: row;
+  gap: 3.5rem;
+  z-index: 2;
+  margin-right: 6rem;
+}
+
+.vertical-slogan span {
+  writing-mode: vertical-rl;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 500;
+  color: var(--vp-c-text-2) !important;
+  letter-spacing: 0.6em;
+  line-height: 1;
+  opacity: 0;
+  will-change: opacity; /* 强制开启 GPU 加速，确保极致流畅 */
+  /* 优化：入场动画与循环动画平滑衔接 */
+  animation: 
+    slideUpFade 2s cubic-bezier(0.23, 1, 0.32, 1) forwards,
+    sloganBreath 8s cubic-bezier(0.445, 0.05, 0.55, 0.95) 2s infinite;
+}
+
+.vertical-slogan span:nth-child(1) { animation-delay: 0.2s, 2.2s; --offset: 0px; }
+.vertical-slogan span:nth-child(2) { animation-delay: 0.4s, 6.4s; --offset: 40px; }
+.vertical-slogan span:nth-child(3) { animation-delay: 0.6s, 2.6s; --offset: 20px; }
+.vertical-slogan span:nth-child(4) { animation-delay: 0.8s, 6.8s; --offset: 60px; }
+
+/* 极致流畅的呼吸动画：移除滤镜，仅使用 Opacity，确保全平台 60帧 */
+@keyframes sloganBreath {
+  0%, 100% { 
+    opacity: 0.7; 
+    transform: translateY(var(--offset, 0));
+  }
+  50% { 
+    opacity: 0.15; 
+    transform: translateY(var(--offset, 0));
+  }
+}
+
+/* 保持入场动画定义 */
+@keyframes slideUpFade {
+  from { 
+    opacity: 0; 
+    transform: translateY(calc(var(--offset, 0) + 60px)); 
+  }
+  to { 
+    opacity: 0.7; /* 与循环动画起点保持一致，消除闪变 */
+    transform: translateY(var(--offset, 0)); 
+  }
+}
+
+.hero-deco-text {
+  position: absolute;
+  right: 0 !important;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(12rem, 28vw, 28rem);
+  font-weight: 200;
+  color: var(--vp-c-text-1);
+  opacity: 0.03;
+  font-family: var(--font-serif);
+  line-height: 0.8;
+  z-index: -1;
+  text-align: right;
+}
+
+/* --- SELECTED WORKS (完全对齐 projects 页面并保留动画) --- */
+.project-wrap { margin-top: 80px; padding-bottom: 0; }
+.project-header { margin-bottom: 60px; display: flex; flex-direction: column; gap: 20px; }
+.header-label { 
+  font-size: 0.75rem; 
+  letter-spacing: 0.8em; 
+  color: var(--vp-c-text-3); 
+  text-transform: uppercase; 
+  font-weight: 400;
+  opacity: 0.8;
+}
+.header-title { 
+  font-family: var(--font-serif); 
+  font-size: clamp(2.5rem, 5vw, 3.8rem); 
+  font-weight: 500; 
+  color: var(--vp-c-text-1); 
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 32px;
+  padding-right: 0 !important;
+  border-bottom: 1px solid var(--vp-c-divider);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  position: relative;
+  cursor: pointer;
+}
+
+.project-item:hover {
+  padding-right: 32px !important; /* 悬浮时：右侧变为 32px，对齐右侧 Git 图标轨道 */
+  background-color: rgba(127, 127, 127, 0.04); 
+}
+
+/* 内部内容布局：恢复 01 02 的顶部对齐与悬浮动画 */
+.p-left { 
+  display: flex; 
+  align-items: flex-start; /* 恢复：顶部对齐 */
+  gap: 40px; 
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+/* 恢复动画：悬浮时左侧整体微移 */
+.project-item:hover .p-left { 
+  transform: translateX(20px); 
+}
+
+.p-num { 
+  font-family: var(--font-serif); 
+  font-size: 1.2rem; 
+  color: var(--vp-c-text-3); 
+  font-style: italic; 
+  transition: color 0.4s ease;
+  margin-top: 0.4rem; /* 配合标题的 line-height，使编号与标题首行视觉对齐 */
+}
+
+.project-item:hover .p-num { 
+  color: var(--vp-c-text-1); 
+}
+
+.p-name { 
+  font-family: var(--font-serif); 
+  font-size: clamp(1.8rem, 4vw, 2.4rem); 
+  font-weight: 700; 
+  margin: 0 0 12px 0 !important; 
+  line-height: 1.2; 
+  transition: color 0.4s ease;
+}
+
+.p-summary { 
+  font-size: 1rem; 
+  color: var(--vp-c-text-2); 
+  max-width: 500px; 
+  margin: 0 !important; /* 清除默认边距 */
+  line-height: 1.8; 
+  font-weight: 300; 
+}
+
+/* 右侧箭头动画 */
+.p-action { 
+  color: var(--vp-c-text-3); 
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); 
+}
+
+.p-arrow { 
+  font-size: 2.2rem; 
+  font-weight: 200; 
+}
+
+.project-item:hover .p-action { 
+  color: var(--vp-c-text-1); 
+  transform: translateX(-20px); /* 恢复：箭头向左微移 */
+}
+
+
+
+
+/* --- FOOTER: VIEW MORE (极简画报风) --- */
+.project-footer { 
+  margin-top: 60px; 
+  display: flex; 
+  justify-content: center; 
+  padding: 0 !important; /* 移除内边距 */
+}
+
+.more-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--vp-c-text-3) !important;
+  font-family: var(--font-serif) !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.15em !important; /* 缩小字间距 */
+  transition: all 0.4s ease !important;
+  position: relative;
+}
+
+/* 左右两侧的连字符 */
+.more-link::before {
+  content: '—' !important;
+  margin-right: 12px;
+  opacity: 0.4;
+  transition: all 0.4s ease !important;
+}
+
+.more-link::after {
+  content: '—' !important;
+  margin-left: 12px;
+  opacity: 0.4;
+  transition: all 0.4s ease !important;
+  /* 覆盖之前的样式 */
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  background: none !important;
+  transform: none !important;
+}
+
+.more-link:hover { 
+  color: var(--vp-c-text-1) !important;
+}
+
+.more-link:hover::before,
+.more-link:hover::after {
+  opacity: 1;
+  color: var(--vp-c-text-1);
+}
+
+.more-link:hover::before { transform: translateX(-5px); }
+.more-link:hover::after { transform: translateX(5px); }
+
+
+
+/* 响应式适配 */
+@media (min-width: 768px) {
+  .VPHome {
+    margin-bottom: 24px !important; /* 再次减半，极致紧凑 */
+  }
+}
+
+@media (max-width: 960px) {
+  /* 1. 首页作品列表适配：防止箭头遮挡文字，减小左右间距 */
+  .project-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 32px 16px !important; /* 减小内边距，与作品集页面保持一致 */
+    gap: 16px !important;
+  }
+
+  .project-item .p-left {
+    gap: 16px !important;
+  }
+
+  .project-item .p-action {
+    align-self: flex-end !important; /* 箭头下移到右侧空白处 */
+    margin-top: 10px !important;
+  }
+
+  /* 2. 移动端取消悬浮位移动画，防止点击时布局跳动 */
+  .project-item:hover .p-left,
+  .project-item:hover .p-action {
+    transform: none !important;
+  }
+
+  .VPHero {
+
+    padding: 100px 0 40px 0 !important;
+  }
+  .VPHero .container { 
+    flex-direction: column !important; 
+    align-items: center !important; 
+    padding: 0 24px !important;
+    text-align: center;
+  }
+  .VPHero .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .VPHero .name {
+    font-size: clamp(3rem, 12vw, 4.5rem) !important;
+    margin-bottom: 2rem !important;
+    white-space: normal !important;
+  }
+  .VPHero .name::before {
+    font-size: 1.2em;
+    top: -0.4em;
+    left: 50%;
+    transform: translateX(-50%) skewX(-10deg);
+  }
+  .VPHero .text {
+    font-size: 1rem !important;
+    letter-spacing: 0.4em !important;
+    margin-bottom: 3rem !important;
+  }
+  .VPHero .actions {
+    margin-top: 40px !important;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .custom-hero-right { 
+    align-items: center !important; 
+    min-width: 100%; 
+    margin-top: 4rem; 
+  }
+  .vertical-slogan { 
+    margin-right: 0; 
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .vertical-slogan span { 
+    writing-mode: horizontal-tb; 
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+  }
+  .hero-deco-text { display: none; }
+}

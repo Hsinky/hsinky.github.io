@@ -1,0 +1,252 @@
+/* ==========================================================================
+   GLOBAL LAYOUT & SHARED COMPONENTS
+   ========================================================================== */
+
+/* 0. 基础重置 - 消除跳动 */
+html {
+  scrollbar-gutter: stable; /* 关键：防止滚动条出现/消失导致的页面整体跳动 */
+}
+
+/* 1. 核心容器锁定 - 基础规范 */
+.site-main {
+  max-width: var(--vp-layout-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. 顶部 Header & 导航 - 贯穿式底线方案 */
+/* 强制消除切换主题时的背景与颜色动画，彻底解决闪烁问题 */
+.VPNav, 
+.VPNavBar, 
+.VPNavBar *,
+.VPNavBarMenuLink, 
+.VPNavBarMenuGroup, 
+.VPNavBarSearch, 
+.VPSocialLink, 
+.VPNavBarAppearance,
+.VPIcon,
+.title,
+.VPNavBarTitle .title,
+.content-body {
+  transition: none !important;
+}
+
+
+/* 针对非首页（有底线的页面）的 content-body，也要禁用 border 颜色过渡 */
+.VPNavBar:not(.home) .content-body {
+  transition: none !important;
+}
+
+
+
+.VPNav {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: var(--vp-z-index-nav) !important;
+}
+
+
+/* 基础背景：全站默认不透明 */
+.VPNavBar {
+  background-color: var(--vp-c-bg) !important;
+  border-bottom: 1px solid var(--vp-c-divider) !important;
+}
+
+/* PC端首页特有逻辑：在最顶部时透明且无底线 */
+@media (min-width: 960px) {
+  .VPNavBar.top {
+    background-color: transparent !important;
+    border-bottom-color: transparent !important;
+    /* 仅在此处显式恢复透明切换的动画，且只针对背景和边框颜色 */
+    transition: background-color 0.3s, border-color 0.3s !important; 
+  }
+
+
+  .VPNavBar:not(.home.top){
+    .content-body{
+    border-bottom: 1px solid var(--vp-c-divider) !important;
+  }
+  } 
+}
+
+/* 移动端逻辑：为了防止滚动穿透，始终保持背景不透明 */
+@media (max-width: 959px) {
+  .VPNavBar {
+    background-color: var(--vp-c-bg) !important;
+    backdrop-filter: blur(8px); /* 增加一点模糊效果，更具高级感 */
+  }
+}
+
+/* 哪怕在顶部，如果是作品页也要显示底线 (PC端) */
+.project-page .VPNavBar.top {
+  background-color: var(--vp-c-bg) !important;
+  border-bottom-color: var(--vp-c-divider) !important;
+  /* 作品页导航栏始终不透明，因此无需滚动过渡动画，直接禁用以解决主题切换闪烁 */
+  transition: none !important; 
+}
+
+
+/* 彻底解决“线条断开”：移除子元素自带的碎线 */
+.VPNavBarTitle,
+.VPNavBar .content,
+.VPNavBar .content-body,
+.VPNavBar .container,
+.VPNavBar .divider {
+  border: none !important;
+  border-bottom: none !important;
+}
+
+/* 移除干扰的垂直短线 */
+.VPNavBar .divider {
+  display: none !important;
+}
+
+
+/* 导航容器对齐轨道 */
+.VPNavBar .container {
+  max-width: var(--vp-layout-max-width) !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+}
+
+.VPNavBarTitle .title { 
+  color: var(--vp-c-text-2) !important; 
+  font-weight: 500 !important; 
+  font-family: var(--font-serif) !important;
+  font-size: 1.25rem !important;
+  letter-spacing: 0.1em;
+  /* 移除颜色过渡动画，确保与主题色切换瞬间同步，消除闪烁 */
+  transition: none !important; 
+}
+
+
+.VPNavBarTitle:hover .title {
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPNavBarMenuLink {
+  font-size: 0.85rem !important;
+  color: var(--vp-c-text-2) !important;
+  letter-spacing: 0.1em;
+}
+
+.VPNavBarMenuLink.active { 
+  font-weight: 600 !important; 
+  color: var(--vp-c-text-1) !important; 
+}
+
+/* 3. 通用按钮 */
+@media (min-width: 960px) {
+  /* PC 端隐藏冗余的本地导航和遮罩，保持清爽 */
+  .VPCurtain, .curtain { display: none !important; }
+  .VPLocalNav { display: none !important; }
+}
+
+@media (max-width: 959px) {
+  /* 移动端恢复本地导航，并固定在顶部 */
+  .VPLocalNav { 
+    display: flex !important; 
+    position: sticky !important;
+    top: var(--vp-nav-height) !important;
+    z-index: var(--vp-z-index-local-nav) !important;
+    border-bottom: 1px solid var(--vp-c-divider);
+    background-color: var(--vp-c-bg) !important;
+  }
+}
+
+
+.VPButton { 
+
+  border-radius: 0 !important; 
+  padding: 0 32px !important; 
+  height: 44px !important; 
+  line-height: 42px !important; 
+  font-size: 0.75rem !important; 
+  letter-spacing: 0.3em; 
+  font-weight: 300 !important; 
+}
+.VPButton.brand { 
+  background-color: var(--vp-c-text-1) !important; 
+  color: var(--vp-c-bg) !important; 
+  border-color: var(--vp-c-text-1) !important; 
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+.VPButton.brand:hover {
+  background-color: var(--vp-c-text-2) !important;
+  border-color: var(--vp-c-text-2) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.VPButton.alt { 
+  background-color: transparent !important; 
+  border-color: var(--vp-c-text-3) !important; 
+  color: var(--vp-c-text-2) !important; 
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+.VPButton.alt:hover {
+  border-color: var(--vp-c-text-1) !important;
+  color: var(--vp-c-text-1) !important;
+  background-color: var(--vp-c-bg-soft) !important;
+  transform: translateY(-2px);
+}
+
+/* 5. 搜索框样式深度定制 - 适配画报风主题 */
+:root {
+  /* 调整搜索框基础变量，使其与全站文本色一致 */
+  --vp-local-search-bg: var(--vp-c-bg-soft);
+  --vp-local-search-result-bg: var(--vp-c-bg);
+  --vp-local-search-result-border: var(--vp-c-divider);
+}
+
+/* 调整未激活状态下的占位符文字颜色 */
+.VPNavBarSearch .DocSearch-Button-Placeholder {
+  color: var(--vp-c-text-3) !important;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* 搜索框触发按钮样式微调 */
+.VPNavBarSearch .VPSearchButton {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  transition: all 0.3s ease;
+}
+
+.VPNavBarSearch .VPSearchButton:hover {
+  background-color: var(--vp-c-bg-soft) !important;
+  border-color: var(--vp-c-divider) !important;
+}
+
+/* 搜索图标颜色 - 统一为辅助色 */
+.VPNavBarSearch .VPSearchButton .search-icon,
+.VPNavBarSearch .VPSearchButton .VPIcon {
+  color: var(--vp-c-text-3) !important;
+  fill: var(--vp-c-text-3) !important;
+  opacity: 0.8;
+}
+
+.VPNavBarSearch .VPSearchButton:hover .search-icon,
+.VPNavBarSearch .VPSearchButton:hover .VPIcon {
+  color: var(--vp-c-text-1) !important;
+  fill: var(--vp-c-text-1) !important;
+  opacity: 1;
+}
+
+
+/* 搜索弹窗内部样式 */
+.VPLocalSearchBox .search-bar {
+  border-bottom: 2px solid var(--vp-c-text-1) !important;
+}
+
+.VPLocalSearchBox input::placeholder {
+  color: var(--vp-c-text-3) !important;
+}
+
+.VPLocalSearchBox .result.active {
+  background-color: var(--vp-c-bg-soft) !important;
+  border-left: 4px solid var(--vp-c-text-1) !important;
+}
+
