@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hsinky.vercel.app/sitemap.xml
+Sitemap: https://hsinky.cn/sitemap.xml

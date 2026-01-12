@@ -6,7 +6,7 @@ export default defineConfig({
   description: "青灯为墙，旖旎为家，以梦为马，不负韶华。",
   lastUpdated: true,
   sitemap: {
-    hostname: "https://hsinky.vercel.app",
+    hostname: "https://hsinky.cn",
   },
   head: [
     [
