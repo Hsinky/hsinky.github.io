@@ -1,13 +1,16 @@
 ---
-title: 汉邦人 - 数字化汉服社区与传统文化传承
-description: 汉邦人致力于通过数字化手段重新定义汉服社区体验，探索汉服文化、礼俗岁时与学术传习。
+title: 汉邦人 - 数字化汉服社区与非遗文化传承 | 李欣琪
+description: 汉邦人由李欣琪 (Hsinky Li) 发起，是一个专注于汉服文化、非遗传承与国风生活的数字化社区，致力于传播中国传统文化与东方美学。
 head:
   - - meta
     - name: keywords
-      content: 汉邦人, hanbangren, 非遗, 非遗文化, 非遗传承, 汉服社区, 传统汉文化, 数字化传承, 汉服活动, 礼俗研究, 汉服资讯, 华夏文明
+      content: 李欣琪, Hsinky Li, 汉服, 国风, 非遗, 汉服文化, 传统文化, 国潮, 东方美学, 汉服社区, 文化传承, 传统文化数字化, 汉邦人, hanbangren
 aside: false
 pageClass: project-page
 ---
+
+
+
 
 
 

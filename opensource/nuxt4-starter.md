@@ -7,7 +7,7 @@ head:
       content: Nuxt 4, Nuxt 4脚手架, 企业级开发, 前端架构, UseFetch封装, PDF生成, Excel解析, 自动化SEO, Pinia状态管理, TailwindCSS
 
 pageClass: project-page
-aside: true
+aside: false
 ---
 
 
@@ -17,7 +17,6 @@ aside: true
     <h1 class="detail-title">Nuxt 4 企业级脚手架</h1>
     <p class="detail-subtitle">High-performance Enterprise Full-stack Boilerplate</p>
   </header>
-
   <section class="detail-intro">
     <div class="intro-main">
       <div class="intro-content">
@@ -27,7 +26,6 @@ aside: true
       </div>
     </div>
   </section>
-
   <section class="detail-features">
     <div class="feature-grid">
       <div class="feature-item">
@@ -53,7 +51,6 @@ aside: true
       </div>
     </div>
   </section>
-
   <footer class="detail-footer" style="flex-direction: column; align-items: center; gap: 30px;">
     <div style="display: flex; gap: 20px;">
       <button @click="showModal = true" class="VPButton brand">快速开始</button>
@@ -61,7 +58,6 @@ aside: true
     </div>
     <p style="font-size: 0.8rem; color: var(--vp-c-text-3); letter-spacing: 0.2em;">版本: 1.0.0-beta | 授权模式: 商业授权</p>
   </footer>
-
   <!-- 自定义美化弹窗 -->
   <Teleport to="body">
     <Transition name="fade">
@@ -74,7 +70,7 @@ aside: true
           <div class="modal-body">
             <p class="modal-intro">感谢你对 <strong>Nuxt 4 企业级脚手架</strong> 的关注。</p>
             <div class="modal-notice">
-              <p>本项目集成了深度的工程化封装。为保障项目的持续维护与技术支持，如需获取<strong>完整版源码及项目授权</strong>，请联系作者咨询详情。</p>
+              <p>本项目不仅是代码的集合，更是成熟工程经验的封装。为确保你能深度理解架构精髓并获得长期的技术保障，我提供<strong>全链路的顾问式支持</strong>——包括从环境搭建到核心架构的<strong>手把手落地指导</strong>。如需获取完整源码及深度技术支持，请联系作者详谈。</p>
             </div>
             <div class="contact-card">
               <span class="card-label">联系作者 / CONTACT</span>

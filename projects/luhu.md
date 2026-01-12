@@ -1,14 +1,15 @@
 ---
-title: 路呼 - 城市深度探索与地理位置社交应用
-description: 路呼是一款专注于城市探索的社交应用，通过地理位置连接同频好友，记录城市足迹。
+title: 路呼 - 城市探店、打卡与社交地图应用 | 李欣琪
+description: 路呼 (lohoo.club) 是由李欣琪开发的一款城市探索社交 APP，支持 City Walk 路线分享、小众景点打卡与探店指南，带你发现身边的城市魅力。
 head:
   - - meta
     - name: keywords
-      content: 路呼, lohoo, lohoo.club, 城市探索, 地理位置社交, 附近社交, 探店打卡, LBS应用, 真实交互, 城市足迹
-
+      content: 李欣琪, Hsinky Li, 路呼, lohoo, City Walk, 城市探索, 打卡, 探店, 社交APP, 旅游攻略, 小众景点, 附近的人, 城市生活, LBS, 独立开发
 aside: false
 pageClass: project-page
 ---
+
+
 
 
 

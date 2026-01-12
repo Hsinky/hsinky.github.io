@@ -8,6 +8,7 @@ export default defineConfig({
     hostname: "https://hsinky.cn",
   },
   head: [
+    ["link", { rel: "icon", href: "/images/logo.png" }],
     [
       "link",
       {

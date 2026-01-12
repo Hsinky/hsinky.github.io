@@ -1,14 +1,15 @@
 ---
-title: 关于我 | 李欣琪 (Hsinky Li)
-description: 深入了解李欣琪（Hsinky Li）的职业生涯、核心技术领域、设计哲学以及联络方式。
+title: 关于我 | 李欣琪 - 全栈工程师与产品设计师
+description: 李欣琪 (Hsinky Li) 的个人介绍与职业生涯：专注全栈工程架构、UI/UX 设计与产品全链路开发，分享技术架构、设计哲学与商业闭环思考。
 head:
   - - meta
     - name: keywords
-      content: 李欣琪, Hsinky Li, 资深前端开发, 产品逻辑, 设计哲学, 像素级还原, 商业闭环, 历程经历, 联络方式
-
+      content: 李欣琪, Hsinky Li, 程序员, 全栈工程师, 架构设计, 前端开发, UI设计, 产品经理, 独立开发者, 个人简历, 职业经历
 pageClass: project-page
 aside: false
 ---
+
+
 
 
 <div class="project-detail">
