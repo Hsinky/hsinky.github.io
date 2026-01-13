@@ -56,7 +56,8 @@ aside: false
       <button @click="showModal = true" class="VPButton brand">快速开始</button>
       <button @click="showModal = true" class="VPButton alt">查看代码库</button>
     </div>
-    <p style="font-size: 0.8rem; color: var(--vp-c-text-3); letter-spacing: 0.2em;">版本: 1.0.0-beta | 授权模式: 商业授权</p>
+    <p style="font-size: 0.8rem; color: var(--vp-c-text-3); letter-spacing: 0.2em;">版本: 1.0.0-beta | 技术支持: 专家级顾问指导</p>
+
   </footer>
   <!-- 自定义美化弹窗 -->
   <Teleport to="body">

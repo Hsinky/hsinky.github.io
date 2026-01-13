@@ -127,5 +127,9 @@ export default defineConfig({
       prev: "←",
       next: "→",
     },
+    footer: {
+      message: "记录 · 思考 · 创作",
+      copyright: "Copyright © 2026-present 李欣琪 (Hsinky Li)",
+    },
   },
 });

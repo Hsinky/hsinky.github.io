@@ -195,7 +195,29 @@ html {
   transform: translateY(-2px);
 }
 
-/* 5. 搜索框样式深度定制 - 适配画报风主题 */
+/* 6. 全局 Footer 弱化处理 */
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider) !important;
+  background-color: transparent !important;
+  padding: 40px 0 !important;
+  margin-top: 60px;
+}
+
+.VPFooter .message,
+.VPFooter .copyright {
+  font-size: 12px !important;
+  color: var(--vp-c-text-3) !important;
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+  line-height: 2;
+}
+
+.VPFooter .message {
+  font-family: var(--font-serif);
+  font-size: 13px !important;
+  margin-bottom: 4px;
+}
+
 :root {
   /* 调整搜索框基础变量，使其与全站文本色一致 */
   --vp-local-search-bg: var(--vp-c-bg-soft);
