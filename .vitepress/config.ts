@@ -20,7 +20,13 @@ export default defineConfig({
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:locale", content: "zh_CN" }],
     ["meta", { property: "og:site_name", content: "李欣琪" }],
-    ["meta", { property: "og:title", content: "李欣琪 (Hsinky Li) - 记录 · 思考 · 创作" }],
+    [
+      "meta",
+      {
+        property: "og:title",
+        content: "李欣琪 (Hsinky Li) - 记录 · 思考 · 创作",
+      },
+    ],
     [
       "meta",
       {
@@ -95,24 +101,16 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
 
-    // search: {
-    //   provider: "local",
-    //   options: {
-    //     // 添加调试渲染函数
-    //     async _render(src, env, md) {
-    //       console.log("🔍 Indexing file:", env.relativePath);
-    //       const html = await md.renderAsync(src, env);
-    //       console.log("🔍 Frontmatter search:", env.frontmatter?.search);
-    //       if (env.frontmatter?.search === false) {
-    //         console.log("🔍 Skipping file due to search: false");
-    //         return "";
-    //       }
-    //       console.log("🔍 HTML length:", html.length);
-    //       return html;
-    //     },
-    //   },
-    // },
-
+    search: {
+      provider: "local",
+      options: {
+        async _render(src, env, md) {
+          const html = await md.renderAsync(src, env);
+          if (env.frontmatter?.search === false) return "";
+          return html;
+        },
+      },
+    },
     outline: {
       label: "页面大纲",
     },
