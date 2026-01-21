@@ -10,6 +10,8 @@ aside: false
 pageClass: project-page
 ---
 
+# 开源项目
+## Nuxt 4 企业级脚手架
 
 <div class="projects-archive">
   <header class="archive-header">

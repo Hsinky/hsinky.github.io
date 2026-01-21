@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: 'zh-CN',
   title: "李欣琪",
   description: "青灯为墙，旖旎为家，以梦为马，不负韶华。",
   sitemap: {
@@ -102,19 +103,36 @@ export default defineConfig({
     ],
 
     search: {
-      provider: "local",
+      provider: 'local',
       options: {
-        async _render(src, env, md) {
-          const html = await md.renderAsync(src, env);
-          if (env.frontmatter?.search === false) return "";
-          return html;
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档'
+          },
+          modal: {
+            noResultsText: '无法找到相关结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换'
+            }
+          }
         },
-      },
+        // miniSearch: {
+        //   searchOptions: {
+        //     tokenize: (text) => {
+        //       // 中文分词：按字符拆分
+        //       return text.split('').filter(char => char.trim() !== '')
+        //     }
+        //   }
+        // }
+      }
     },
+
     outline: {
       label: "页面大纲",
     },
-
     sidebarMenuLabel: "菜单",
     returnToTopLabel: "回到顶部",
     darkModeSwitchLabel: "主题颜色",
