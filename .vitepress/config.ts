@@ -119,14 +119,6 @@ export default defineConfig({
             }
           }
         },
-        // miniSearch: {
-        //   searchOptions: {
-        //     tokenize: (text) => {
-        //       // 中文分词：按字符拆分
-        //       return text.split('').filter(char => char.trim() !== '')
-        //     }
-        //   }
-        // }
       }
     },
 
