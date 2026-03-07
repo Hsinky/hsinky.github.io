@@ -316,7 +316,7 @@
 
 /* 侧边栏链接基础样式 (修复点击跳转问题) */
 .VPSidebarItem .link {
-  display: block !important; /* block 布局最稳定 */
+  display: flex !important; /* block 布局最稳定 */
   width: 100%;
   padding: 8px 0 !important; /* 缩小间距，保持精致感 */
   color: var(--vp-c-text-2) !important;

@@ -2,7 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  lang: 'zh-CN',
+  lang: "zh-CN",
   title: "李欣琪",
   description: "青灯为墙，旖旎为家，以梦为马，不负韶华。",
   sitemap: {
@@ -60,6 +60,13 @@ export default defineConfig({
       { text: "首页", link: "/" },
       { text: "产品", link: "/projects/", activeMatch: "^/projects/" },
       { text: "开源", link: "/opensource/", activeMatch: "^/opensource/" },
+      {
+        text: "AI",
+        items: [
+          { text: "资源中心", link: "https://ai.hsinky.cn" },
+          { text: "工具", link: "/ai/", activeMatch: "^/ai/" },
+        ],
+      },
       { text: "关于", link: "/about" },
     ],
 
@@ -83,6 +90,13 @@ export default defineConfig({
           ],
         },
       ],
+      "/ai": [
+        {
+          text: "AI",
+          link: "/ai/",
+          items: [{ text: "AI工具", link: "/ai/index" }],
+        },
+      ],
       "/about": [
         {
           text: "关于我",
@@ -103,23 +117,23 @@ export default defineConfig({
     ],
 
     search: {
-      provider: 'local',
+      provider: "local",
       options: {
         translations: {
           button: {
-            buttonText: '搜索文档',
-            buttonAriaLabel: '搜索文档'
+            buttonText: "搜索文档",
+            buttonAriaLabel: "搜索文档",
           },
           modal: {
-            noResultsText: '无法找到相关结果',
-            resetButtonTitle: '清除查询条件',
+            noResultsText: "无法找到相关结果",
+            resetButtonTitle: "清除查询条件",
             footer: {
-              selectText: '选择',
-              navigateText: '切换'
-            }
-          }
+              selectText: "选择",
+              navigateText: "切换",
+            },
+          },
         },
-      }
+      },
     },
 
     outline: {
