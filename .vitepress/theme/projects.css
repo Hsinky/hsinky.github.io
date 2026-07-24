@@ -433,8 +433,8 @@
 }
 
 /* 隐藏用于搜索的 Markdown 标题，保持自定义 HTML 样式 */
-.project-page .vp-doc h1:not(.detail-title),
-.project-page .vp-doc h2:not(.detail-header h2) {
+.project-page .VPDoc h1:not(.detail-title),
+.project-page .VPDoc h2:not(.detail-header h2) {
   position: absolute;
   width: 1px;
   height: 1px;

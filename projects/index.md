@@ -11,7 +11,7 @@ aside: false
 pageClass: project-page
 ---
 
-# 独立产品 汉邦人 路呼
+# 独立产品
 
 
 <div class="projects-archive">
@@ -23,7 +23,7 @@ pageClass: project-page
 
 <div class="project-list">
 
-<div class="project-item" onclick="window.location.href='/projects/hanbangren'">
+<div class="project-item" onclick="window.location.href='/projects/hanbangren.html'">
 <div class="p-left">
 <span class="p-num">01</span>
 <div class="p-content">
@@ -36,7 +36,7 @@ pageClass: project-page
 </div>
 </div>
 
-<div class="project-item" onclick="window.location.href='/projects/luhu'">
+<div class="project-item" onclick="window.location.href='/projects/luhu.html'">
 <div class="p-left">
 <span class="p-num">02</span>
 <div class="p-content">

@@ -1,12 +1,71 @@
 import { defineConfig } from "vitepress";
 
+const SITE_URL = "https://www.hsinky.cn";
+const PERSON_URL = `${SITE_URL}/about.html`;
+
+// 全站 WebSite 结构化数据（JSON-LD），帮助搜索引擎与 AI 理解站点实体
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "李欣琪",
+  alternateName: "Hsinky Li",
+  url: `${SITE_URL}/`,
+  description:
+    "李欣琪 (Hsinky Li) 的个人博客，分享软件工程、产品设计、开源项目与创作思考。",
+  inLanguage: "zh-CN",
+};
+
+// 作者 / 站长 Person 结构化数据，让 AI 将"李欣琪"识别为可引用的身份实体
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "李欣琪",
+  alternateName: "Hsinky Li",
+  url: PERSON_URL,
+  jobTitle: "全栈工程师 / 产品设计师",
+  sameAs: ["https://github.com/hsinky"],
+  knowsAbout: [
+    "全栈开发",
+    "产品设计",
+    "UI/UX 设计",
+    "独立开发",
+    "汉服与非遗文化",
+  ],
+};
+
+// 产品页 SoftwareApplication 结构化数据
+const productSchemas: Record<string, object> = {
+  "projects/hanbangren.md": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "汉邦人",
+    description:
+      "专注汉服文化、非遗传承与国风生活的数字化社区，致力于传播中国传统文化与东方美学。",
+    url: `${SITE_URL}/projects/hanbangren.html`,
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "Web",
+    author: { "@type": "Person", name: "李欣琪", url: PERSON_URL },
+  },
+  "projects/luhu.md": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "路呼",
+    description:
+      "专注城市深度探索与社交的应用，支持 City Walk 路线分享、小众景点打卡与探店指南。",
+    url: `${SITE_URL}/projects/luhu.html`,
+    applicationCategory: "TravelApplication",
+    operatingSystem: "Web",
+    author: { "@type": "Person", name: "李欣琪", url: PERSON_URL },
+  },
+};
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
   title: "李欣琪",
   description: "青灯为墙，旖旎为家，以梦为马，不负韶华。",
   sitemap: {
-    hostname: "https://hsinky.cn",
+    hostname: "https://www.hsinky.cn",
   },
   head: [
     ["link", { rel: "icon", href: "/images/logo.png" }],
@@ -35,7 +94,7 @@ export default defineConfig({
         content: "记录 · 思考 · 创作 - 李欣琪的个人博客",
       },
     ],
-    ["meta", { property: "og:url", content: "https://hsinky.cn" }],
+    ["meta", { property: "og:url", content: "https://www.hsinky.cn" }],
     // 百度自动推送脚本
     [
       "script",
@@ -53,7 +112,54 @@ export default defineConfig({
     s.parentNode.insertBefore(bp, s);
 })();`,
     ],
+    // 全站 WebSite 结构化数据（JSON-LD）
+    [
+      "script",
+      { type: "application/ld+json" },
+      JSON.stringify(websiteSchema),
+    ],
   ],
+  // 为每页生成 canonical 规范网址，统一主机为 www.hsinky.cn
+  // 避免搜索引擎因 www / 非 www 不一致判定重复内容而不予收录
+  transformPageData(pageData) {
+    const path = pageData.relativePath
+      .replace(/\.md$/, "")
+      .replace(/\\/g, "/");
+    const canonical =
+      path === "index"
+        ? `${SITE_URL}/`
+        : path.endsWith("/index")
+          ? `${SITE_URL}/${path.slice(0, -6)}/`
+          : `${SITE_URL}/${path}.html`;
+
+    const head: any[] = [["link", { rel: "canonical", href: canonical }]];
+
+    // 首页与关于页注入作者 Person 实体
+    if (path === "index" || path === "about") {
+      head.push([
+        "script",
+        { type: "application/ld+json" },
+        JSON.stringify(personSchema),
+      ]);
+    }
+
+    // 产品页注入 SoftwareApplication 实体
+    const product = productSchemas[pageData.relativePath];
+    if (product) {
+      head.push([
+        "script",
+        { type: "application/ld+json" },
+        JSON.stringify(product),
+      ]);
+    }
+
+    return {
+      frontmatter: {
+        ...pageData.frontmatter,
+        head: [...(pageData.frontmatter.head ?? []), ...head],
+      },
+    };
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

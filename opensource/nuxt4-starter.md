@@ -12,7 +12,6 @@ aside: false
 
 # Nuxt 4 企业级脚手架
 
-
 <div class="project-detail">
   <header class="detail-header">
     <div class="header-deco">OPEN SOURCE 01</div>

@@ -21,7 +21,7 @@ pageClass: project-page
   </header>
 
   <div class="project-list">
-    <div class="project-item" onclick="window.location.href='/opensource/nuxt4-starter'">
+    <div class="project-item" onclick="window.location.href='/opensource/nuxt4-starter.html'">
       <div class="p-left">
         <span class="p-num">01</span>
         <div class="p-content">
