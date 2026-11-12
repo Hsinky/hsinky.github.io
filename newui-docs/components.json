@@ -1,0 +1,854 @@
+{
+  "generatedAt": "2026-11-12T08:58:08.831Z",
+  "count": 106,
+  "components": [
+    {
+      "name": "n-avatar",
+      "label": "头像",
+      "desc": "用户 / 事物信息的可视化标识：个人中心、联系人列表、评论区、消息流。内容按 插槽 > 图片 > 文字 > 图标占位 四级自动回退——传了 src 渲染图片，没图时用 text 文…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/avatar",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-avatar-group",
+      "label": "头像组",
+      "desc": "头像组，双形态：叠放（默认）是头像横向重叠一行——项目协作成员、群成员、点赞 / 参与者头像墙，max 截断超出部分折叠为 \"+N\" 尾块；拼合（composite）是群组头像——…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/avatar",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-badge",
+      "label": "徽标",
+      "desc": "数量提示元素：出现在图标 / 按钮 / 卡片右上角，提示有待处理的新内容（未读消息、待办数量、促销标记）。两种形态由默认插槽自动判定——插槽有内容时为包角标（绝对定位于内容右上角）…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/badge",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-button",
+      "label": "按钮",
+      "desc": "view 为根承载内容与样式，内嵌原生 button 仅作能力承接层（form-type / open-type 及其事件）。文字走 text 或默认插槽；图标放插槽里配合 n-i…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/button",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-icon",
+      "label": "图标",
+      "desc": "内置 599 个矢量字形（字体资产随库发行、离线可用、无 CDN/网络依赖；App 用 ttf、H5/微信用 woff2，均 base64 内嵌），也支持接入自有图标字体（regi…",
+      "category": "基础",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-image",
+      "label": "图片",
+      "desc": "页面与列表里的图片展示：矩形 / 圆形画布 + 加载中 / 失败占位 + 点击全屏预览 + 默认插槽叠放（水印、角标、徽标）。",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/image",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-tag",
+      "label": "标签",
+      "desc": "行内小标签，用于状态标注、分类标记、筛选条件回显。view 为根，文字走 text 或默认插槽；底色与描边走显式色调类（填充 n-tag--primary、镂空 n-tag--pl…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/tag",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-text",
+      "label": "文本",
+      "desc": "原生 text 组件为根（无包装层）：8 档色调 + 字号/加粗/装饰线快捷排版、行数省略、可选中复制。纯展示组件——数据变换（脱敏/金额格式化）属于函数层，见 composabl…",
+      "category": "基础",
+      "demoUrl": "/pkgBasic/newui/typography",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-back-top",
+      "label": "返回顶部",
+      "desc": "页面或滚动容器下滑超过阈值后出现的返回顶部按钮：页面滚动时组件自动回顶，滚动容器场景由调用方控制回顶；图标、文字、形状、尺寸、位置与外观均可配置。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-card",
+      "label": "卡片",
+      "desc": "内容容器原语：头 / 体 / 底三段结构。头部排开 缩略图 + 标题 / 副标题 + 右侧额外区，主体放默认插槽（内容自带布局），底部放 foot 插槽（操作区 / 补充说明）。适…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/card",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-cell",
+      "label": "单元格",
+      "desc": "列表行原语：一行之内排开 图标（插槽）/ 标题 / 说明 / 值 / 右侧图标（插槽）/ 箭头，适合设置页、个人中心、表单信息行等成组的列表场景。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/cell",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-col",
+      "label": "栅格列",
+      "desc": "24 分栏布局的列容器，配合 n-row 使用：span 声明占几栏、offset 声明左侧空几栏、push/pull 视觉换位、xs/sm/md/lg/xl 断点响应。完整配对教…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/layout",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-collapse",
+      "label": "折叠面板",
+      "desc": "面板组容器：纵向排列 n-collapse-item 成员，承载手风琴（accordion，同时至多一个面板展开）与多开两种模式。适合 FAQ 问答、设置分组、分类列表等需要收纳内…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/collapse",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-collapse-item",
+      "label": "折叠面板成员",
+      "desc": "折叠面板的单个成员：标题行（图标插槽 / 标题 / 说明 / 值 / 收展箭头，单元格同构形态）+ 高度过渡动画的内容折叠区。搭配 n-collapse 使用（组内开合由组的 mo…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/collapse",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-data-tag",
+      "label": "标签选择",
+      "desc": "通过字符串、数字或业务对象生成标签，适用于分类筛选、规格选择与兴趣多选。未绑定值时自动管理选择；绑定 modelValue 后由父级回写，单选使用字符串或数字，多选使用数组。空字符…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-divider",
+      "label": "分割线",
+      "desc": "区隔内容的分割线：横向为「线 - 内容 - 线」三段式，文字嵌在两线之间（position 三档位置，dot 圆点形态替代文字做极简分隔）；竖向（direction=\"col\"）为…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-dropdown",
+      "label": "下拉菜单",
+      "desc": "筛选标题栏：多个标题列横排等分，点击标题在下方展开与组件等宽的面板，面板内容自然高度完整展示，组件内部按标题栏位置在页面层定位，标题栏移动时自动收起，组内互斥（同时只开一列）、深色…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/dropdown",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-dropdown-item",
+      "label": "下拉菜单列",
+      "desc": "n-dropdown 的列成员：menu 型为标题列 + 在页面层定位的下拉面板；sort / toggle / switch / filter 为无面板列型，在条上直接交互（排序…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/dropdown",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-fab",
+      "label": "悬浮动作按钮",
+      "desc": "用于新建、客服、分享等常驻操作入口。组件内部处理四角定位、四向菜单、拖拽、边缘吸附、遮罩与禁用，调用者只需配置数据、属性和插槽。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-gap",
+      "label": "间距块",
+      "desc": "用于内容之间留白、带背景的区块分隔，以及包裹内容时的左右留白。无需 CSS gap，不自行固定位置。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-grid",
+      "label": "宫格",
+      "desc": "配合 n-grid-item 等分排列同类入口或内容。列数、边框、间距、圆角与末行对齐可动态修改；图标、文字、图片和徽标均通过成员的默认插槽组合。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-grid-item",
+      "label": "宫格项",
+      "desc": "放在 n-grid 默认插槽内。列宽、间距、边框、圆角和方形高度由父容器配置，内容通过默认插槽定制。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-index-list",
+      "label": "索引列表",
+      "desc": "分组浏览长列表，支持索引点击、触摸与桌面拖动定位、分组标题吸顶及气泡提示。普通列表只配置数据；自定义内容提供 item 或 section 插槽。容器需有确定高度。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/index-list",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-list",
+      "label": "列表",
+      "desc": "组装普通纵向列表：数据行、首尾内容、原生下拉刷新和触底事件。标准行复用 n-cell；网络请求、分页与加载状态由调用方管理，底部提示可直接组合 n-loadmore。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-loadmore",
+      "label": "加载更多",
+      "desc": "列表底部的加载状态提示条，status 三态轮换：loadmore（显示\"加载更多\"，整条可点击请求下一页）/ loading（加载指示器 + 加载文案）/ nomore（\"没有更…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/loadmore",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-navbar",
+      "label": "自定义导航栏",
+      "desc": "页面在 pages.json 配置 \"navigationStyle\": \"custom\" 隐藏系统导航栏后，用本组件替代：状态栏占位 + 返回箭头 + 标题 + 左右操作区。微信…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-no-network",
+      "label": "无网络提示",
+      "desc": "断网占位 + 重试：自动监听系统网络状态，断网时以 fixed 全屏不透明面覆盖页面（提示图形 + 提示语 + 重试按钮，App 端另有\"去设置\"入口），网络恢复后整体自动隐藏——…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgFeedback/newui/no-network",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-page",
+      "label": "页面骨架",
+      "desc": "主体滚动区 + 底部常驻操作栏，同时就是页面包装层（根节点自动挂 n-theme-light / n-theme-dark 主题类，CSS 变量沿树继承给内部全部 newui 组件…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/page",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-pagination",
+      "label": "分页器",
+      "desc": "数据量过多时的分页导航：上一页按钮 + 页码区 + 下一页按钮，全宽等分格铺满父容器（各格等宽，任意屏宽不溢出）。适用列表底部分页、搜索结果翻页等场景。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/pagination",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-popover",
+      "label": "气泡",
+      "desc": "单个触发内容旁的文字提示、操作菜单或自定义内容。定位、测量、箭头、遮罩、尺寸变化与关闭动画由组件处理。多列筛选栏使用 n-dropdown，单触发器操作菜单直接使用本组件的 ite…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/popover",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-row",
+      "label": "栅格行 / n-col 栅格列",
+      "desc": "24 分栏栅格布局：n-row 是水平容器（排列、对齐、换行、列间距），n-col 声明每块内容占几栏（span）与左侧空几栏（offset）。适用于表单两列、卡片等分、主次内容混…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/layout",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-safe-area",
+      "label": "安全区",
+      "desc": "为顶部状态区域或底部手势区域提供真实高度占位，不自行固定定位，不预设设备型号或固定安全区高度。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-scroll-list",
+      "label": "横向滚动列表",
+      "desc": "内容横向排列超出容器宽度时滑动浏览的容器：隐藏原生滚动条保持界面干净，可选底部自绘滑动指示器（轨道 + 滑块，随滚动实时位移），滚动到最左/最右端触发事件。典型场景：分类入口、商品…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/scroll-list",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-search",
+      "label": "搜索框",
+      "desc": "灰底圆角搜索条：放大镜图标 + 单行输入 + 一键清除 + 右侧动作按钮，键盘右下角固定为搜索键。内嵌原生 input 承接输入，受控模式与 n-input 同构（v-model …",
+      "category": "布局与页面",
+      "demoUrl": "/pkgForm/newui/search",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-section",
+      "label": "分组标题",
+      "desc": "章节 / 分组标题栏：标题文字 + 右侧操作区 + 标题下方描述文字，可选左侧装饰竖条强调（宽度 / 颜色 / 端部形态 / 上下缩进可调，颜色支持渐变）。设置页、个人中心、详情页…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-segmented",
+      "label": "分段器",
+      "desc": "少量等分选项的单选切换：一段灰底胶囊上滑块滑动选中的 iOS 分段控件形态，另有描边填充与底线两种外观。完全受控：点击不改变内部状态，只派发目标下标，页面回写 model-valu…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-skeleton",
+      "label": "骨架屏",
+      "desc": "数据返回前的页面结构占位：灰底占位块按「头像 + 标题条 + 段落行」声明式组合，近似还原真实内容排版（文章 / 评论 / 卡片列表等形态），loading 翻 false 时整树…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-status-bar",
+      "label": "状态栏占位",
+      "desc": "用于隐藏原生导航栏后的自定义页面，按系统状态栏高度填充顶部空间。它绘制应用内容中的背景与占位，不改变系统时间、电量、图标颜色或状态栏显隐。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-steps",
+      "label": "步骤条",
+      "desc": "任务流程 / 进度回显组件：一组有序步骤展示当前进行到哪一步、哪些已完成、哪一步出错。适用下单流程、开通引导、审批进度等场景。数据驱动（list），当前步 model-value …",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/steps",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-sticky",
+      "label": "粘性布局",
+      "desc": "滚过组件所在位置后吸附，向下回滚自动还原。默认只提供属性和插槽：Web、微信使用原生 sticky；App 在组件内部接入页面或指定容器的滚动事件。没有页面级测量、占位或偏移计算。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/sticky",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-swipe-action",
+      "label": "滑动单元格分组",
+      "desc": "列表分组容器，负责注册、互斥、组级禁用与统一收起。普通列表只需配置菜单数据和内容插槽。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/swipe-action",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-swipe-action-item",
+      "label": "滑动单元格",
+      "desc": "按 direction 配置左滑展开右侧主菜单或右滑展开左侧主菜单；补充 reverseOptions 或 reverseButton 插槽后同一行可双向滑动。手势、宽度变化、互斥…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/swipe-action",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-swiper",
+      "label": "轮播图",
+      "desc": "数据驱动的图片轮播：自动播放、衔接循环、手势滑切原生承接；卡片式轮播（前后边距露出相邻项 + 非当前项缩放）与指示器点 / 线 / 数字 / 标题 / 页码五形态并集内置。list…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-tabbar",
+      "label": "底部标签栏",
+      "desc": "应用级底部导航栏：固定底部 + 底部安全区适配 + 选中高亮 + 图标角标 + 中间凸起按钮 + 点击跳页。数据驱动（list），选中值绑定 modelValue，按 item.v…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-table",
+      "label": "表格",
+      "desc": "用于库存、订单和记录等结构化数据。通过 columns 定义列，children 定义分组表头；不需要额外的列组件。",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-tabs",
+      "label": "标签页",
+      "desc": "横向标签栏：点击切换当前项，下划线 / 滑块指示条随选中项平滑移动（选中文字默认不放大，可经 activeScale 开启放大高亮）；标签超宽时横向滚动，选中项自动滚到可视区中部。…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/tabs",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-timeline",
+      "label": "时间轴",
+      "desc": "按时间顺序展示物流、审批和日程记录。list 是唯一数据源；model-value 只标记当前节点，点击不会改写它。不传当前节点时为纯记录型。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/timeline",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-upload",
+      "label": "文件上传",
+      "desc": "九宫格图片 / 视频列表：选择（相册 / 拍摄，数量 / 大小 / 扩展名校验）→ 上传 → 地址回填 → 点击预览 → 删除。",
+      "category": "布局与页面",
+      "demoUrl": "/pkgForm/newui/upload",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-vtabs",
+      "label": "垂直选项卡",
+      "desc": "左侧竖向分类轨道 + 右侧滚动内容区：点轨道项切换当前项；联动模式下内容区滚动时高亮自动跟随，点轨道项内容区平滑滚到对应分区。适用于\"左侧分类 + 右侧长内容\"的分类页（外卖菜类、…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/vtabs",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-vtabs-content",
+      "label": "垂直选项卡内容分区",
+      "desc": "n-vtabs 的右侧内容分区容器：包住分区内容并传 tabIndex（0 起连续编号，与轨道数据顺序对应）。挂载后自动向所属 n-vtabs 上报自身高度，作为联动滚动定位的依据…",
+      "category": "布局与页面",
+      "demoUrl": "/pkgBasic/newui/vtabs",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-waterfall",
+      "label": "瀑布流",
+      "desc": "多列不等高排版容器（商品流、图文动态、壁纸站）：列宽等分，条目由 #item 插槽完全自定义，新条目按各列实际高度自动放入最短列。数据用 v-model 双向绑定，也提供 appe…",
+      "category": "布局与页面",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-action-sheet",
+      "label": "动作面板",
+      "desc": "底部弹出的操作菜单：普通操作列表（纵向）与分享面板（layout=\"share\"，每行横向、可滚动）共用同一套数据解析、选择守卫与事件出口。弹层骨架（遮罩 / 滑入滑出 / 把手拖…",
+      "category": "弹层与反馈",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-circle-progress",
+      "label": "环形进度条",
+      "desc": "展示操作或任务的当前进度（上传 / 下载 / 加载完成度）的圆环形态：轨道环 + 进度弧，percent 驱动进度动画（每变动 1% 所需毫秒数可调，0 关动画直接到位），动画到位…",
+      "category": "弹层与反馈",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-count-to",
+      "label": "数字滚动",
+      "desc": "用于统计指标、金额与带单位的数字展示。数值在同一动画进度下插值，各数字列按十进制位滚动，文字、货币符号和分隔符留在原位。",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgBasic/newui/count-to",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-countdown",
+      "label": "倒计时",
+      "desc": "用于活动截止、可暂停的相对时长与累计计时。时长输入统一为毫秒，天/时/分/秒可附加；截止日期优先。修改输入开始新一轮，修改显示格式或样式保留本轮进度。",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgBasic/newui/countdown",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-empty",
+      "label": "空状态",
+      "desc": "空状态占位与结果页二合一：mode 单枚举 18 个预设——14 个空态场景（data 数据为空 / list 列表 / news 新闻 / message 消息 / search…",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgFeedback/newui/empty",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-loading",
+      "label": "加载",
+      "desc": "加载指示器，五种形态（mode）：圆环（默认带轨道）/ 半圆弧 / 花瓣 / 三点脉冲 / 三竖条。两种形态：默认行内局部占位；fixed 开全屏加载层（全屏居中 + 可选遮罩阻断…",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgFeedback/newui/loading",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-loading-page",
+      "label": "加载页",
+      "desc": "整屏加载遮罩：fixed 铺满视口的不透明纯色底 + 居中加载圈与文案（图文纵排）。进入页面拉取首屏数据、整页等待等场景用；局部占位请用加载指示器（n-loading）。",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgFeedback/newui/loading-page",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-modal",
+      "label": "模态对话框",
+      "desc": "居中弹出的对话框：标题 + 正文 + 操作按钮（确认 / 取消），用于重要操作的二次确认、关键信息提示等需要中断用户流程的场景。弹层骨架（遮罩 / 居中面板 / 出入场缩放淡入过渡…",
+      "category": "弹层与反馈",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-popup",
+      "label": "弹出层",
+      "desc": "通用弹层容器：遮罩 + 面板 + 可选拖拽头部和关闭按钮，内容经 header / default / footer 三段插槽自由组装，关闭图标可经 closeIcon 插槽替换。…",
+      "category": "弹层与反馈",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-progress",
+      "label": "进度条",
+      "desc": "展示操作或任务的当前进度（上传 / 下载 / 任务完成度）：轨道 + 进度条横向铺满容器，percent 驱动进度动画（每变动 1% 所需毫秒数可调，0 关动画直接到位），动画到位…",
+      "category": "弹层与反馈",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-toast",
+      "label": "轻提示",
+      "desc": "命令式反馈组件：页面放置一个实例，经 ref 调用 open(options) 弹出、close() 手动关闭。消息内容 / 类型 / 位置 / 时长逐次调用各异，全部走 open…",
+      "category": "弹层与反馈",
+      "demoUrl": "/pkgFeedback/newui/toast",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-checkbox",
+      "label": "复选框",
+      "desc": "方形盒 + 勾选形 + 文案的纯 CSS 复选控件（无原生 checkbox 元素，样式与行为全自绘）。推荐放进 n-checkbox-group 使用，由组容器统一管理选中值集合…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/checkbox",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-checkbox-group",
+      "label": "复选组",
+      "desc": "纵向布局的复选容器，默认插槽放 n-checkbox 成员，统一接管成员的选中值集合与整组禁用。组自身不持有状态——v-model 自动回写（update:modelValue 与…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/checkbox",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-code-input",
+      "label": "验证码输入",
+      "desc": "验证码 / 一次密码的分格录入组件：一排格子承接逐字符输入（自动前进、退格回退、粘贴整段填充），输满自动收起键盘并派发 finish。点击格子唤起系统键盘（type 决定数字或文本…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/code-input",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-color",
+      "label": "色彩",
+      "desc": "色板选择器：从一组预设色中点选，拿到选中色值。选中色块带主色描边环与对勾，对勾颜色按色值亮度自适应黑白；再点已选中的色 = 取消选中（值为空串）。",
+      "category": "表单与输入",
+      "demoUrl": "/pkgBasic/newui/color",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-form",
+      "label": "表单容器",
+      "desc": "纵向堆叠 n-form-item 表单行，统一管理标签布局（位置 / 对齐 / 宽度）与校验规则。页面自持数据对象（model 只读取值参与校验，不回写），提交前经组件 ref 调…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/form",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-form-item",
+      "label": "表单行",
+      "desc": "标签 + 控件插槽 + 错误展示的表单行。放进 n-form 由其统一校验与布局默认值（条目 prop 留 null 跟随表单级配置）；独立使用是纯布局行，不参与校验（无必填星号推…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/form",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-input",
+      "label": "输入框",
+      "desc": "view 为根装配 边框 / 尺寸 / 前缀与后缀插槽 / 清除与字数统计区，内部嵌原生 input 承接输入。组件根不是原生 input，v-model 由组件的双事件通道承接（…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/input",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-number-box",
+      "label": "数字选择器",
+      "desc": "减号 / 值 / 加号三段结构：点按加减按钮步进一步，长按可连发；加减按钮与符号均为 view 自绘（无原生 button、无字体文件）。值按 decimalLength 固定小数…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/number-box",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-picker",
+      "label": "选择器",
+      "desc": "触发器 + 底部自绘弹层的滚轮选择控件（n-popup + picker-view + 工具栏），原生 picker 的全模式能力在同一根滚轮上实现，mode 四形态：",
+      "category": "表单与输入",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-radio",
+      "label": "单选框",
+      "desc": "圆环 + 实心圆点 + 文案的纯 CSS 单选控件（无原生 radio 元素，样式与行为全自绘）。推荐放进 n-radio-group 使用，由组容器统一管理选中值；也可以独立使用…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/radio",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-radio-group",
+      "label": "单选组",
+      "desc": "纵向布局的单选容器，默认插槽放 n-radio 成员，统一接管成员的选中值与整组禁用。推荐配合 n-radio 使用（成员自动经组上下文接管选中态，单项不再各自维护状态）。",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/radio",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-rate",
+      "label": "评分",
+      "desc": "打分/评级组件：一排可点选、可横滑的星级格子，适用订单评价、商品评分、满意度调查等场景。图形三档：默认内置星形（开箱即用）、图标名 prop 换形、插槽全定制，组件负责取值、状态与…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/rate",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-slider",
+      "label": "滑动选择器",
+      "desc": "在一个区间内拖动选择数值的控件：单滑块取单值、区间模式双滑块取 [start, end]，支持步进、横向 / 竖向、反向、防交叉、禁用 / 只读与数值回显。点按轨道任意位置即取该处…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/slider",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-switch",
+      "label": "开关",
+      "desc": "原生 switch 的主题化替身：轨道 + 圆形钮纯 CSS 自绘，选中色、形状、轨道内文可配，尺寸对齐原生 switch 固定规格（51×31）。完全受控：点击不翻转内部状态，只…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/switch",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-textarea",
+      "label": "多行输入框",
+      "desc": "view 为根装配 边框 / 字数统计区 / 下划线与禁用拦截层，内部嵌原生 textarea 承接输入，外观与 n-input 同一套（内边距、圆角、字号、禁用透明度共用 --n…",
+      "category": "表单与输入",
+      "demoUrl": "/pkgForm/newui/textarea",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-calendar",
+      "label": "日历",
+      "desc": "日历面板支持单选、多选、日期范围，以及单月、滑动月份、连续月份三种视图。所有选择模式使用 YYYY-MM-DD 字符串数组，单选最多一个日期，范围使用两个端点。通过 :model-…",
+      "category": "选择器",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-cascader",
+      "label": "级联面板",
+      "desc": "内嵌面板形态的多级联动选择器：层级 tab 头 + 当前层选项列表。点击含子级的选项逐级下钻，末级选项选中即完成一次选择（finish）；点层级 tab 回到该层重选，已选项以对勾…",
+      "category": "选择器",
+      "demoUrl": "/pkgForm/newui/cascader",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-cascader-picker",
+      "label": "级联选择器",
+      "desc": "触发器 + 底部弹层的多级联动选择控件：点击触发器弹出底部面板，逐级下钻，选中叶子节点即完成并关闭。数据是一棵 label/value 树（options），选中结果用\"从根到叶的…",
+      "category": "选择器",
+      "demoUrl": "/pkgForm/newui/cascader-picker",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-color-picker",
+      "label": "颜色选择器",
+      "desc": "取值控件：预设色板点选 + 色相滑杆派生新色 + 当前值回显，纵向三段一次排开。适合\"让用户给出一",
+      "category": "选择器",
+      "demoUrl": "/pkgForm/newui/color-picker",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-date-time-picker",
+      "label": "日期时间选择器",
+      "desc": "底部弹层 + 滚轮选择：从年 / 月 / 日 / 时 / 分列中选出一个时刻，值是毫秒时间戳。列数据由组件内日历函数生成，大小月与闰年自动处理；年月日时分逐列联动可选范围（选中项贴…",
+      "category": "选择器",
+      "demoUrl": "/pkgFeedback/newui/date-time-picker",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-keyboard-number",
+      "label": "数字键盘",
+      "desc": "底部弹层形态的虚拟数字键盘（遮罩 + 底部面板 + 按键网格），用于支付金额、验证码、身份证号等不想调起系统输入法的录入场景。",
+      "category": "虚拟键盘",
+      "demoUrl": "/pkgForm/newui/keyboard-number",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-keyboard-plate",
+      "label": "车牌键盘",
+      "desc": "底部弹层形态的车牌录入键盘（遮罩 + 底部面板 + 双页键区），用于停车缴费、违章查询、加油充电等不想调起系统输入法的车牌录入场景。",
+      "category": "虚拟键盘",
+      "demoUrl": "/pkgForm/newui/keyboard-plate",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-theme-provider",
+      "label": "主题容器",
+      "desc": "在自己根节点上挂 .n-theme-light / .n-theme-dark 主题类，为包裹的子树装配完整主题变量集。主题状态是全局单例：容器跟随全局主题同步切换（浅→深时容器内…",
+      "category": "主题",
+      "demoUrl": "/pkgBasic/newui/theme-provider",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-album",
+      "label": "相册",
+      "desc": "九宫格图片组：单图大图、多图网格、超出数量折叠为剩余数量格；点击图片打开内置全屏画廊（横滑翻页 + 页码胶囊 + 描述条）。适合动态配图、评价晒单、商品详情图组等嵌入内容流的图片组…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-amount",
+      "label": "金额文本",
+      "desc": "金融数字展示：小数精度取舍、千分位 / 万分位分组、货币符号前置或置后、数值变化滚动动画、人民币大写转换。三段文字（符号 / 整数 / 小数）字号与颜色独立可配，插槽可整区接管渲染…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-barcode",
+      "label": "条形码",
+      "desc": "- 绘制通道分端：Web 端画布元素直取上下文，小程序端组件作用域选择器取节点，App 端异步上下文载体；导出统一 png dataURL。",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-chart",
+      "label": "图表",
+      "desc": "- 绘制通道分端：Web 端画布元素直取上下文，小程序端组件作用域选择器取节点，App 端异步上下文载体。",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-cropper",
+      "label": "图片裁剪",
+      "desc": "- Web 端系统选图（chooseImage）由浏览器文件选择承载；微信端网络图导出需在平台配置 downloadFile 合法域名。",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-draggable",
+      "label": "拖拽排序",
+      "desc": "列表与网格的拖拽排序：长按（默认）或触摸进入拖拽，拖拽项实时跟手，其余项按插入位置平滑让位，松手落位并回发重排后的新数组。支持单列列表与多列网格（columns）、方向限定（dir…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-float-panel",
+      "label": "浮动面板",
+      "desc": "常驻底部的可拖拽浮动面板（bottom-sheet）：拖动头部或内容区在锚点档位间切换可见高度，松手吸附最近锚点；支持多锚点、遮罩、底部安全区与内容滚动，常用于筛选面板、详情面板与…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-keyboard-password",
+      "label": "密码键盘",
+      "desc": "底部弹层形态的支付密码键盘：固定位数密码位回显（实心圆点 + 下一格品牌色描边）+ 数字键区（randomKey 打乱防窥）+ 右侧删除 / 完成功能列。用于支付密码、支付 PIN…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-link",
+      "label": "超链接",
+      "desc": "文字链接展示与打开动作，不同平台不同表现形式：App 复制链接到剪贴板并提示（tel: 转系统拨号）、微信小程序复制链接到剪贴板并提示、H5 新窗口打开。文字、字号、颜色、下划线可…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": true
+    },
+    {
+      "name": "n-overlay",
+      "label": "遮罩层",
+      "desc": "创建一个遮罩层，用于强调特定的页面元素，并阻止用户对遮罩下层的内容进行操作。自带淡入淡出过渡，可在遮罩上方嵌入任意内容（弹块、面板、引导层等）；点击遮罩触发 click 事件，是否…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-picker-view",
+      "label": "滚轮选择视图",
+      "desc": "数据驱动的多列滚轮选择视图（纯视图）：columns 传入列数据、v-model 绑逐列选中下标，滚动停止后回发选中结果。没有弹层壳、触发器与确认按钮——嵌入任意容器或自组弹层时用…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-poster",
+      "label": "海报生成",
+      "desc": "传入 JSON 数据在离屏画布生成分享海报：色块、图片、文字、线条、二维码五类元素按层级合成一张图片，导出 png dataURL 可直接展示、预览或保存到相册。适合分享卡片、商品…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-preview",
+      "label": "表单预览",
+      "desc": "键值信息卡（订单详情、个人信息、账单汇总等只读详情页的卡片形态）：头部「标签 + 强调值」、中部键值列表、底部操作按钮行，全部由 panelData 一个数据对象驱动；数据变化整卡…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-qrcode",
+      "label": "二维码",
+      "desc": "- 绘制通道分端：Web 端画布元素直取上下文，小程序端组件作用域选择器取节点，App 端异步上下文载体；导出统一 png dataURL。",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-read-more",
+      "label": "查看更多",
+      "desc": "长内容（公告、评论、文章详情）预先收起一部分的展开/收起容器：收起态内容裁到指定高度、底部盖渐变遮罩；展开/收起由同一按钮行完成。内容自然高度不足时退化为普通内容块（撤除收起高度，…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-select-seat",
+      "label": "选座",
+      "desc": "影院 / 剧场 / 巴士等场景的图形化选座：座位平面以画布渲染，支持单指拖动平移、双指缩放、点按选中或取消座位；座位可声明禁用（已售）、空位（走道缺口）、图片座位、逐座位配色与图标…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-signature",
+      "label": "手写签名",
+      "desc": "画布手写签名板：手指书写、画笔色板、撤销/清空/完成，完成导出 PNG 图片（dataURL）。支持压感笔迹（按书写速度调整线宽）、画布水印、横屏签名、导出裁剪到笔迹内容区；常与弹…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-slide-verify",
+      "label": "滑动验证",
+      "desc": "滑动验证条：拖动滑块完成行为验证，用于登录 / 注册 / 下单等场景的人机识别。四种验证形态经 mode 切换：",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-transition",
+      "label": "过渡动画",
+      "desc": "过渡容器：包一层内容，show 受控切换时以淡入 / 滑入 / 缩放过渡显示与隐藏。完整生命周期事件（前 / 中 / 后 × 进 / 出）可用于动画编排、联动与埋点。内容默认流式排…",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-tree",
+      "label": "树形控件",
+      "desc": "树形数据的展示、展开收起与节点勾选。两种选择模式：",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    },
+    {
+      "name": "n-watermark",
+      "label": "水印",
+      "desc": "- 绘制通道分端：Web 端画布元素直取上下文，小程序端组件作用域选择器取节点，App 端异步上下文载体。",
+      "category": "其他",
+      "demoUrl": "",
+      "hasDemoCode": false
+    }
+  ]
+}

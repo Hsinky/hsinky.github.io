@@ -1,7 +1,49 @@
 import { defineConfig } from "vitepress";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const SITE_URL = "https://www.hsinky.cn";
 const PERSON_URL = `${SITE_URL}/about.html`;
+
+/**
+ * newui 组件手册侧栏：读取 pnpm newui:sync 生成的 newui-docs/components.json，
+ * 按 help.md 中的组件分类分组。脚本未跑时（文件不存在）返回空数组，不影响构建。
+ * 注意：/newui/ 是在线演示站（public/newui/），手册在 /newui-docs/。
+ */
+function loadNewuiSidebar() {
+  try {
+    const metaPath = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      "../newui-docs/components.json"
+    );
+    const { components } = JSON.parse(fs.readFileSync(metaPath, "utf-8"));
+    const groups: { text: string; collapsed: boolean; items: any[] }[] = [];
+    for (const c of components) {
+      let g = groups.find((x) => x.text === c.category);
+      if (!g) {
+        g = { text: c.category, collapsed: true, items: [] };
+        groups.push(g);
+      }
+      g.items.push({
+        text: c.label === c.name ? c.name : `${c.label} ${c.name.replace(/^n-/, "")}`,
+        link: `/newui-docs/components/${c.name}/`,
+      });
+    }
+    return [
+      {
+        text: "newui 手册",
+        items: [
+          { text: "快速上手", link: "/newui-docs/" },
+          { text: "更新日志", link: "/newui-docs/changelog/" },
+        ],
+      },
+      ...groups,
+    ];
+  } catch {
+    return [];
+  }
+}
 
 // 全站 WebSite 结构化数据（JSON-LD），帮助搜索引擎与 AI 理解站点实体
 const websiteSchema = {
@@ -56,6 +98,31 @@ const productSchemas: Record<string, object> = {
     applicationCategory: "TravelApplication",
     operatingSystem: "Web",
     author: { "@type": "Person", name: "李欣琪", url: PERSON_URL },
+  },
+  "projects/newui.md": {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "newui",
+    description:
+      "为 uni-app x 而生的商业组件库：106 个生产级组件、CSS 变量深浅双主题、中英多语言、零依赖自包含。",
+    url: `${SITE_URL}/projects/newui.html`,
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web, Android, iOS",
+    author: { "@type": "Person", name: "李欣琪", url: PERSON_URL },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "常规版",
+        price: "8.80",
+        priceCurrency: "CNY",
+      },
+      {
+        "@type": "Offer",
+        name: "源码版",
+        price: "16.80",
+        priceCurrency: "CNY",
+      },
+    ],
   },
 };
 
@@ -164,7 +231,11 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "/" },
-      { text: "产品", link: "/projects/", activeMatch: "^/projects/" },
+      {
+        text: "产品",
+        link: "/projects/",
+        activeMatch: "^/(projects|newui(-docs)?)/",
+      },
       { text: "开源", link: "/opensource/", activeMatch: "^/opensource/" },
       {
         text: "AI",
@@ -184,9 +255,11 @@ export default defineConfig({
           items: [
             { text: "汉邦人", link: "/projects/hanbangren" },
             { text: "路呼", link: "/projects/luhu" },
+            { text: "newui 组件库", link: "/projects/newui" },
           ],
         },
       ],
+      "/newui-docs/": loadNewuiSidebar(),
       "/opensource/": [
         {
           text: "开源项目",

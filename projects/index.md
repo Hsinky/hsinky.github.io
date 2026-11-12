@@ -49,5 +49,18 @@ pageClass: project-page
 </div>
 </div>
 
+<div class="project-item" onclick="window.location.href='/projects/newui.html'">
+<div class="p-left">
+<span class="p-num">03</span>
+<div class="p-content">
+<h3 class="p-name">newui 组件库</h3>
+<p class="p-summary">为 uni-app x 而生的商业组件库：106 组件、深浅双主题、多语言、零依赖。</p>
+</div>
+</div>
+<div class="p-action">
+<span class="p-arrow">→</span>
+</div>
+</div>
+
 </div>
 </div>

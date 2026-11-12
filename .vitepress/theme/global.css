@@ -55,13 +55,15 @@ html {
   border-bottom: 1px solid var(--vp-c-divider) !important;
 }
 
-/* PC端首页特有逻辑：在最顶部时透明且无底线 */
+/* PC端首页特有逻辑：在最顶部时透明且无底线。
+   必须限定 .home（首页导航）：否则手册/组件页刷新后停在顶部时导航
+   也命中透明背景，左侧 sidebar 滚动菜单会从透明导航底下穿透出来 */
 @media (min-width: 960px) {
-  .VPNavBar.top {
+  .VPNavBar.home.top {
     background-color: transparent !important;
     border-bottom-color: transparent !important;
     /* 仅在此处显式恢复透明切换的动画，且只针对背景和边框颜色 */
-    transition: background-color 0.3s, border-color 0.3s !important; 
+    transition: background-color 0.3s, border-color 0.3s !important;
   }
 
 

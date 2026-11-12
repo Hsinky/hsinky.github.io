@@ -1,0 +1,157 @@
+/* ==========================================================================
+   newui 组件手册（/newui/）三栏布局：释放内容宽度，左栏为 VitePress sidebar
+   ========================================================================== */
+.newui-doc .VPDoc {
+  padding-top: 24px !important;
+}
+
+.newui-doc .VPDoc .container {
+  /* 铺满 sidebar 右侧全部宽度（左侧 sidebar 本就贴视口左缘）：
+     按 max-width 居中会在大屏右侧留出大片空白（截图实测 ~240px），
+     而顶部导航底线是通栏的，内容右缘留白显得失衡 */
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 32px !important;
+  padding-right: 40px !important;
+  display: flex !important;
+}
+
+/* 中栏长段落限制阅读宽度（标题与 API 表格保持全宽） */
+.newui-doc .cd-doc > p,
+.newui-doc .cd-doc > blockquote,
+.newui-doc .cd-doc > ol,
+.newui-doc .cd-doc > ul {
+  max-width: 780px;
+}
+
+.newui-doc .VPDoc .content {
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.newui-doc .VPDoc .main {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+/* doc.md 中第二个 h1（平台兼容性）降级为节标题，避免双 h1 视觉过重 */
+.newui-doc .cd-doc h1:not(:first-of-type) {
+  font-size: 1.35rem !important;
+  margin-top: 48px !important;
+  padding-top: 24px !important;
+  border-top: 1px solid var(--vp-c-divider) !important;
+  letter-spacing: 0.02em;
+}
+
+/* API 表格窄屏横向滚动，不断行 */
+.newui-doc .cd-doc table {
+  display: block;
+  overflow-x: auto;
+  white-space: normal;
+}
+
+/* ==========================================================================
+   newui 产品介绍页（/projects/newui）CTA 与价格区
+   ========================================================================== */
+.newui-cta {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.newui-cta .cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  padding: 14px 36px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: pointer;
+}
+
+.newui-cta .cta-main {
+  background: var(--vp-c-text-1);
+  color: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-text-1);
+}
+
+.newui-cta .cta-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  /* 显式保持反白字色：默认主题 .vp-doc a:hover（特异性更高）会把
+     color 抢成 --vp-c-brand-1，黑底按钮的字会变成黑色 */
+  color: var(--vp-c-bg) !important;
+}
+
+.newui-cta .cta-ghost {
+  background: transparent;
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.newui-cta .cta-ghost:hover {
+  border-color: var(--vp-c-text-1);
+  transform: translateY(-2px);
+}
+
+.newui-price {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.newui-price .price-card {
+  border: 1px solid var(--vp-c-divider);
+  padding: 32px 28px;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.newui-price .price-card:hover {
+  border-color: var(--vp-c-text-3);
+  transform: translateY(-4px);
+}
+
+.newui-price .p-name {
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  margin: 0 0 16px !important;
+}
+
+.newui-price .p-amount {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: var(--vp-c-text-1);
+  line-height: 1;
+  margin: 0 0 8px !important;
+}
+
+.newui-price .p-amount small {
+  font-size: 1rem;
+  color: var(--vp-c-text-3);
+  margin-left: 4px;
+}
+
+.newui-price .p-desc {
+  font-size: 0.9rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.8;
+  margin: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .newui-doc .VPDoc .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
